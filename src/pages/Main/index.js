@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { StatusBar } from 'react-native';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,7 +11,6 @@ import {
   PageBar,
   PageTitle,
   PageSubtitle,
-  LoadingIcon,
   Podcast,
   Cover,
   Info,
@@ -36,6 +36,7 @@ class Main extends Component {
 
     return (
       <Container>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         <PodcastList
           ListHeaderComponent={() => (
             <PageBar>

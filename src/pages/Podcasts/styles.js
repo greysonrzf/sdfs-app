@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import LinearGradient from 'react-native-linear-gradient';
+import IconPlay from 'react-native-vector-icons/Entypo';
 
 export const Container = styled(LinearGradient).attrs({
   colors: ['#fff', '#D9E5FE'],
@@ -29,7 +30,7 @@ export const Background = styled.ImageBackground`
   position: absolute;
   width: 100%;
   height: ${320 + getStatusBarHeight()}px;
-  opacity: 0.6;
+  opacity: 0.2;
 `;
 
 export const BackButton = styled.TouchableOpacity.attrs({
@@ -60,9 +61,9 @@ export const Count = styled.Text`
 export const PlayButton = styled.TouchableOpacity.attrs({
   activeOpacity: 0.8,
 })`
-  height: 50px;
+  height: 45px;
   background: #0448b4;
-  margin: 15px 40px 0;
+  margin: 15px 140px 0;
   border-radius: 25px;
   elevation: 10;
 
@@ -77,6 +78,11 @@ export const PlayButtonText = styled.Text`
   font-size: 16px;
   letter-spacing: 1.5px;
 `;
+
+export const PlayButtonIcon = styled(IconPlay).attrs({
+  color: '#fff',
+  size: 24,
+})``;
 
 export const Episode = styled.TouchableOpacity`
   margin-top: 20px;

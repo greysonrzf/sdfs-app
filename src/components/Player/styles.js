@@ -1,18 +1,43 @@
+import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export const Container = styled.View`
-  background: #fff;
-  height: ${74 + getBottomSpace()}px;
-  width: 100%;
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    height: 70,
+    alignSelf: 'stretch',
 
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px ${getBottomSpace()}px;
-  elevation: 20px;
-`;
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingBottom: 5,
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 25,
+  },
+});
+
+export default styles;
+
+// export const Container = styled.View`
+//   background: #fff;
+//   height: ${74 + getBottomSpace()}px;
+//   width: 100%;
+
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 0 20px ${getBottomSpace()}px;
+// `;
 
 export const CoverBackground = styled.Image.attrs({
   blurRadius: 5,
@@ -22,7 +47,7 @@ export const CoverBackground = styled.Image.attrs({
   right: 0;
   bottom: 0;
   top: 0;
-  opacity: 0.6;
+  opacity: 0.1;
 `;
 
 export const EpisodeInfo = styled.View``;
