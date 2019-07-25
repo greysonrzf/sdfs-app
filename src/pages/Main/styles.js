@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/Fontisto';
+import IconLoading from 'react-native-vector-icons/Fontisto';
 import IconDots from 'react-native-vector-icons/FontAwesome';
 
 export const Container = styled(LinearGradient).attrs({
@@ -23,26 +23,23 @@ export const PageBar = styled.View`
   justify-content: center;
   width: 100%;
   height: 60px;
-  elevation: 10;
-  background: #0448b4;
 `;
 
 export const PageTitle = styled.Text`
   font-size: 24px;
   font-weight: bold;
   text-align: left;
-  color: #fff;
+  color: #000;
   padding-left: 20px;
-  elevation: 10px;
 `;
 
 export const PageSubtitle = styled.Text`
   font-size: 22px;
   font-weight: normal;
-  color: #fff;
+  color: #000;
 `;
 
-export const LoadingIcon = styled(Icon).attrs({
+export const LoadingIcon = styled(IconLoading).attrs({
   color: '#fff',
   size: 20,
 })``;
@@ -56,14 +53,13 @@ export const Podcast = styled.TouchableOpacity.attrs({
   padding: 10px 20px;
   margin: 10px 10px 0;
   background: #fff;
-  border-radius: 15px;
-  elevation: 3;
+  border-radius: 25px;
 `;
 
 export const Cover = styled.Image`
   width: 80px;
   height: 80px;
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 
 export const Info = styled.View`

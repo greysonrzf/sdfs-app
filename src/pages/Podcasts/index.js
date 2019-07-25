@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {StatusBar} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { connect } from 'react-redux';
@@ -16,7 +17,7 @@ import {
   PodcastTitle,
   Count,
   PlayButton,
-  PlayButtonText,
+  PlayButtonIcon,
   Episode,
   Title,
   Author,
@@ -41,6 +42,7 @@ class Podcasts extends Component {
 
     return (
       <Container>
+        <StatusBar barStyle='light-content' backgroundColor='#000' />
         <EpisodeList
           ListHeaderComponent={() => (
             <PodcastDetails>
@@ -57,7 +59,7 @@ class Podcasts extends Component {
               <Count>{podcast.tracks.length} episódios</Count>
 
               <PlayButton onPress={() => this.handlePlay()}>
-                <PlayButtonText>REPRODUZIR</PlayButtonText>
+                <PlayButtonIcon name="controller-play" />
               </PlayButton>
             </PodcastDetails>
           )}
