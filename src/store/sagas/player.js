@@ -26,15 +26,12 @@ export function* init() {
   yield call(TrackPlayer.setupPlayer);
 
   TrackPlayer.updateOptions({
-    jumpInterval: 15,
     capabilities: [
       TrackPlayer.CAPABILITY_PLAY,
       TrackPlayer.CAPABILITY_PAUSE,
       TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
       TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
       TrackPlayer.CAPABILITY_STOP,
-      TrackPlayer.CAPABILITY_JUMP_FORWARD,
-      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
     ],
     notificationCapabilities: [
       TrackPlayer.CAPABILITY_PLAY,
@@ -42,8 +39,6 @@ export function* init() {
       TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
       TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
       TrackPlayer.CAPABILITY_STOP,
-      TrackPlayer.CAPABILITY_JUMP_FORWARD,
-      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
     ],
     compactCapabilities: [
       TrackPlayer.CAPABILITY_PLAY,
