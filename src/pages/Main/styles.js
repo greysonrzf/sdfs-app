@@ -57,6 +57,14 @@ export const ErrorText = styled.Text`
   text-align: left;
 `;
 
+export const ErrorSubText = styled.Text`
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  width: 100%;
+  text-align: left;
+`;
+
 export const Podcast = styled.TouchableOpacity.attrs({
   activeOpacity: 0.6,
 })`

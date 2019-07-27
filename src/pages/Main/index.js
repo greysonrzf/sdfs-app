@@ -11,6 +11,7 @@ import {
   Container,
   Error,
   ErrorText,
+  ErrorSubText,
   PodcastList,
   PageBar,
   PageTitle,
@@ -39,8 +40,8 @@ class Main extends Component {
     return (
       <Error>
         <ErrorText>Erro de conexão.</ErrorText>
-        <ErrorText>Verifique se você está conectado à internet.</ErrorText>
-        <ErrorText>Feche o app, limpe a memória e abra-o novamente.</ErrorText>
+        <ErrorSubText>Verifique se você está conectado à internet.</ErrorSubText>
+        <ErrorSubText>Feche o app, limpe a memória e abra-o novamente.</ErrorSubText>
       </Error>
     );
   };
