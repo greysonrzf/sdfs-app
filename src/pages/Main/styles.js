@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import LinearGradient from 'react-native-linear-gradient';
 import IconLoading from 'react-native-vector-icons/Fontisto';
 import IconDots from 'react-native-vector-icons/FontAwesome';
@@ -12,17 +11,19 @@ export const Container = styled(LinearGradient).attrs({
 
 export const PodcastList = styled.FlatList.attrs({
   contentContainerStyle: {
-    // paddingTop: getStatusBarHeight() + 0,
     paddingBottom: 30,
   },
 })``;
 
 export const PageBar = styled.View`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export const PageTitle = styled.Text`
@@ -30,7 +31,6 @@ export const PageTitle = styled.Text`
   font-weight: bold;
   text-align: left;
   color: #000;
-  padding-left: 20px;
 `;
 
 export const PageSubtitle = styled.Text`
@@ -39,10 +39,23 @@ export const PageSubtitle = styled.Text`
   color: #000;
 `;
 
-export const LoadingIcon = styled(IconLoading).attrs({
-  color: '#fff',
-  size: 20,
-})``;
+export const Error = styled.View`
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+  margin: 10px 10px 0;
+  background: #ff7575;
+  border-radius: 25px;
+`;
+
+export const ErrorText = styled.Text`
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+`;
 
 export const Podcast = styled.TouchableOpacity.attrs({
   activeOpacity: 0.6,
@@ -57,9 +70,9 @@ export const Podcast = styled.TouchableOpacity.attrs({
 `;
 
 export const Cover = styled.Image`
-  width: 80px;
-  height: 80px;
-  border-radius: 20px;
+  width: 75px;
+  height: 75px;
+  border-radius: 19px;
 `;
 
 export const Info = styled.View`
@@ -69,7 +82,7 @@ export const Info = styled.View`
 
 export const Title = styled.Text`
   color: #000;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 `;
 

@@ -5,8 +5,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PodcastsActions from '../../store/ducks/podcasts';
 
+import { View, ActivityIndicator } from 'react-native';
+
 import {
   Container,
+  Error,
+  ErrorText,
   PodcastList,
   PageBar,
   PageTitle,
@@ -31,20 +35,35 @@ class Main extends Component {
     navigation.navigate('Podcasts', { podcast });
   };
 
+  renderError = () => {
+    return (
+      <Error>
+        <ErrorText>Erro de conexão.</ErrorText>
+        <ErrorText>Verifique se você está conectado à internet.</ErrorText>
+        <ErrorText>Feche o app, limpe a memória e abra-o novamente.</ErrorText>
+      </Error>
+    );
+  };
+
   render() {
     const { podcasts } = this.props;
-
     return (
       <Container>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         <PodcastList
           ListHeaderComponent={() => (
-            <PageBar>
-              <PageTitle>
-                Show da Fé
-                <PageSubtitle> Streaming </PageSubtitle>
-              </PageTitle>
-            </PageBar>
+            <View>
+              <PageBar>
+                <PageTitle>
+                  Show da Fé
+                  <PageSubtitle> Streaming </PageSubtitle>
+                </PageTitle>
+                {podcasts.loading && (
+                  <ActivityIndicator size="small" color="#000" />
+                )}
+              </PageBar>
+              {podcasts.error && this.renderError()}
+            </View>
           )}
           data={podcasts.data}
           keyExtractor={podcast => String(podcast.id)}
