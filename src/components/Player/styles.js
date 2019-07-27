@@ -47,7 +47,7 @@ export const CoverBackground = styled.Image.attrs({
   right: 0;
   bottom: 0;
   top: 0;
-  opacity: 0.1;
+  opacity: 0.15;
 `;
 
 export const EpisodeInfo = styled.View``;
