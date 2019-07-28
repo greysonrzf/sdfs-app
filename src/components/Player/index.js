@@ -1,11 +1,12 @@
 import React from 'react';
+import { View } from 'react-native';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PlayerActions from '../../store/ducks/player';
 
-import {
-  Container,
+import styles, {
+  // Container,
   CoverBackground,
   EpisodeInfo,
   Title,
@@ -17,7 +18,7 @@ import {
 
 const Player = ({ player, currentEpisode, play, pause, prev, next }) =>
   player.current && (
-    <Container>
+    <View style={styles.container}>
       <CoverBackground source={{ uri: currentEpisode.artwork }} />
 
       <EpisodeInfo>
@@ -38,7 +39,7 @@ const Player = ({ player, currentEpisode, play, pause, prev, next }) =>
           <ControlIcon name="skip-next" />
         </ControlButton>
       </Controls>
-    </Container>
+    </View>
   );
 
 const mapStateToProps = state => ({
