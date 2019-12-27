@@ -1,24 +1,24 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from "react";
+import { View } from "react-native";
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import PlayerActions from '../../store/ducks/player';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import PlayerActions from "../../store/ducks/player";
 
-import styles, {
-  // Container,
+import {
+  Container,
   CoverBackground,
   EpisodeInfo,
   Title,
   Author,
   Controls,
   ControlButton,
-  ControlIcon,
-} from './styles';
+  ControlIcon
+} from "./styles";
 
 const Player = ({ player, currentEpisode, play, pause, prev, next }) =>
   player.current && (
-    <View style={styles.container}>
+    <Container>
       <CoverBackground source={{ uri: currentEpisode.artwork }} />
 
       <EpisodeInfo>
@@ -32,14 +32,14 @@ const Player = ({ player, currentEpisode, play, pause, prev, next }) =>
         </ControlButton>
         <ControlButton onPress={player.playing ? pause : play}>
           <ControlIcon
-            name={player.playing ? 'pause-circle-filled' : 'play-circle-filled'}
+            name={player.playing ? "pause-circle-filled" : "play-circle-filled"}
           />
         </ControlButton>
         <ControlButton onPress={next}>
           <ControlIcon name="skip-next" />
         </ControlButton>
       </Controls>
-    </View>
+    </Container>
   );
 
 const mapStateToProps = state => ({
@@ -48,13 +48,10 @@ const mapStateToProps = state => ({
     ? state.player.podcast.tracks.find(
         episode => episode.id === state.player.current
       )
-    : null,
+    : null
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(PlayerActions, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

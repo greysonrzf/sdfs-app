@@ -1,16 +1,16 @@
-import styled from 'styled-components/native';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import LinearGradient from 'react-native-linear-gradient';
-import IconPlay from 'react-native-vector-icons/Entypo';
+import styled from "styled-components/native";
+import { getStatusBarHeight } from "react-native-iphone-x-helper";
+import LinearGradient from "react-native-linear-gradient";
+import IconPlay from "react-native-vector-icons/Entypo";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ['#fff', '#D9E5FE'],
+  colors: ["#fff", "#D9E5FE"]
 })`
   flex: 1;
 `;
 
 export const EpisodeList = styled.FlatList.attrs({
-  contentContainerStyle: { paddingBottom: 30 },
+  contentContainerStyle: { paddingBottom: 30 }
 })``;
 
 export const PodcastDetails = styled.View`
@@ -30,11 +30,11 @@ export const Background = styled.ImageBackground`
   position: absolute;
   width: 100%;
   height: ${320 + getStatusBarHeight()}px;
-  opacity: 0.2;
+  opacity: 0.1;
 `;
 
 export const BackButton = styled.TouchableOpacity.attrs({
-  hitSlop: { top: 5, left: 5, right: 5, bottom: 5 },
+  hitSlop: { top: 5, left: 5, right: 5, bottom: 5 }
 })`
   position: absolute;
   left: 30px;
@@ -59,12 +59,13 @@ export const Count = styled.Text`
 `;
 
 export const PlayButton = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.8,
+  activeOpacity: 0.8
 })`
-  height: 45px;
+  height: 55px;
+  width: 55px;
   background: #0448b4;
-  margin: 15px 140px 0;
-  border-radius: 25px;
+  margin: 15px 0 0 75%;
+  border-radius: 50px;
   elevation: 10;
 
   align-self: stretch;
@@ -80,19 +81,21 @@ export const PlayButtonText = styled.Text`
 `;
 
 export const PlayButtonIcon = styled(IconPlay).attrs({
-  color: '#fff',
-  size: 24,
+  color: "#fff",
+  size: 26
 })``;
 
 export const Episode = styled.TouchableOpacity`
-  margin-top: 20px;
-  padding: 0 20px;
+  margin: 10px 5px 0;
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 10px;
 `;
 
 export const Title = styled.Text`
   font-size: 16px;
   font-weight: bold;
-  color: ${({ active }) => (active ? '#0448b4' : '#000')};
+  color: ${({ active }) => (active ? "#0448b4" : "#000")};
 `;
 
 export const Author = styled.Text`

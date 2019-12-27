@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
+import React, { Component } from "react";
+import { StatusBar } from "react-native";
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import PodcastsActions from '../../store/ducks/podcasts';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import PodcastsActions from "../../store/ducks/podcasts";
 
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator } from "react-native";
+
+import Header from "../../components/Header";
 
 import {
   Container,
@@ -22,8 +24,8 @@ import {
   Title,
   Artist,
   Count,
-  DotsIcon,
-} from './styles';
+  DotsIcon
+} from "./styles";
 
 class Main extends Component {
   componentDidMount() {
@@ -33,15 +35,19 @@ class Main extends Component {
 
   handlePodcastPress = podcast => {
     const { navigation } = this.props;
-    navigation.navigate('Podcasts', { podcast });
+    navigation.navigate("Podcasts", { podcast });
   };
 
   renderError = () => {
     return (
       <Error>
         <ErrorText>Erro de conexão.</ErrorText>
-        <ErrorSubText>Verifique se você está conectado à internet.</ErrorSubText>
-        <ErrorSubText>Feche o app, limpe a memória e abra-o novamente.</ErrorSubText>
+        <ErrorSubText>
+          Verifique se você está conectado à internet.
+        </ErrorSubText>
+        <ErrorSubText>
+          Feche o app, limpe a memória e abra-o novamente.
+        </ErrorSubText>
       </Error>
     );
   };
@@ -50,21 +56,15 @@ class Main extends Component {
     const { podcasts } = this.props;
     return (
       <Container>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        <StatusBar
+          barStyle="dark-content"
+          translucent={true}
+          backgroundColor={"transparent"}
+        />
+        <Header />
         <PodcastList
           ListHeaderComponent={() => (
-            <View>
-              <PageBar>
-                <PageTitle>
-                  Show da Fé
-                  <PageSubtitle> Streaming </PageSubtitle>
-                </PageTitle>
-                {podcasts.loading && (
-                  <ActivityIndicator size="small" color="#000" />
-                )}
-              </PageBar>
-              {podcasts.error && this.renderError()}
-            </View>
+            <View>{podcasts.error && this.renderError()}</View>
           )}
           data={podcasts.data}
           keyExtractor={podcast => String(podcast.id)}
@@ -85,13 +85,10 @@ class Main extends Component {
   }
 }
 const mapStateToProps = state => ({
-  podcasts: state.podcasts,
+  podcasts: state.podcasts
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(PodcastsActions, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

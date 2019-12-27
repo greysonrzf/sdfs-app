@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import {StatusBar} from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import React, { Component } from "react";
+import { StatusBar } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import PlayerActions from '../../store/ducks/player';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import PlayerActions from "../../store/ducks/player";
 
 import {
   Container,
@@ -20,8 +20,8 @@ import {
   PlayButtonIcon,
   Episode,
   Title,
-  Author,
-} from './styles';
+  Author
+} from "./styles";
 
 class Podcasts extends Component {
   handleBack = () => {
@@ -31,18 +31,22 @@ class Podcasts extends Component {
 
   handlePlay = episodeId => {
     const { setPodcastRequest, navigation } = this.props;
-    const podcast = navigation.getParam('podcast');
+    const podcast = navigation.getParam("podcast");
 
     setPodcastRequest(podcast, episodeId);
   };
 
   render() {
     const { navigation, currentEpisode } = this.props;
-    const podcast = navigation.getParam('podcast');
+    const podcast = navigation.getParam("podcast");
 
     return (
       <Container>
-        <StatusBar barStyle='light-content' backgroundColor='#000' />
+        <StatusBar
+          barStyle="light-content"
+          translucent={true}
+          backgroundColor={"transparent"}
+        />
         <EpisodeList
           ListHeaderComponent={() => (
             <PodcastDetails>
@@ -86,13 +90,10 @@ const mapStateToProps = state => ({
     ? state.player.podcast.tracks.find(
         episode => episode.id === state.player.current
       )
-    : null,
+    : null
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(PlayerActions, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Podcasts);
+export default connect(mapStateToProps, mapDispatchToProps)(Podcasts);
