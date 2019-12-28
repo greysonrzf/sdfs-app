@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import LinearGradient from "react-native-linear-gradient";
 import IconPlay from "react-native-vector-icons/Entypo";
+import IconMusic from "react-native-vector-icons/Foundation";
 
 export const Container = styled(LinearGradient).attrs({
   colors: ["#fff", "#D9E5FE"]
@@ -65,7 +66,7 @@ export const PlayButton = styled.TouchableOpacity.attrs({
   width: 55px;
   background: #0448b4;
   margin: 15px 0 0 75%;
-  border-radius: 50px;
+  border-radius: 40px;
   elevation: 10;
 
   align-self: stretch;
@@ -76,7 +77,7 @@ export const PlayButton = styled.TouchableOpacity.attrs({
 export const PlayButtonText = styled.Text`
   color: #fff;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 1.5px;
 `;
 
@@ -86,11 +87,16 @@ export const PlayButtonIcon = styled(IconPlay).attrs({
 })``;
 
 export const Episode = styled.TouchableOpacity`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 10px 5px 0;
   padding: 15px 20px;
   background: #fff;
   border-radius: 10px;
 `;
+
+export const TitleContainer = styled.View``;
 
 export const Title = styled.Text`
   font-size: 14px;
@@ -103,3 +109,8 @@ export const Author = styled.Text`
   font-size: 13px;
   margin-top: 3px;
 `;
+
+export const MusicIcon = styled(IconMusic).attrs({
+  color: '#fff',
+  size: 22
+})``;

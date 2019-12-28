@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 import { connect } from "react-redux";
@@ -19,8 +19,11 @@ import {
   PlayButton,
   PlayButtonIcon,
   Episode,
+  EpisodeContainer,
+  TitleContainer,
   Title,
-  Author
+  Author,
+  MusicIcon
 } from "./styles";
 
 class Podcasts extends Component {
@@ -71,12 +74,17 @@ class Podcasts extends Component {
           keyExtractor={episode => String(episode.id)}
           renderItem={({ item: episode }) => (
             <Episode onPress={() => this.handlePlay(episode.id)}>
-              <Title
-                active={currentEpisode && currentEpisode.id === episode.id}
-              >
-                {episode.title}
-              </Title>
-              <Author>{episode.artist}</Author>
+
+                <TitleContainer>
+                  <Title
+                    active={currentEpisode && currentEpisode.id === episode.id}
+                  >
+                    {episode.title}
+                  </Title>
+                  <Author>{episode.artist}</Author>
+                </TitleContainer>
+                <MusicIcon name="music" />
+
             </Episode>
           )}
         />
