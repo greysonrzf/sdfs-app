@@ -78,9 +78,12 @@ export const Podcast = styled.TouchableOpacity.attrs({
 `;
 
 export const Cover = styled.Image`
-  width: 70px;
-  height: 70px;
-  border-radius: 19px;
+  width: 65px;
+  height: 65px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 10px;
 `;
 
 export const Info = styled.View`
@@ -90,13 +93,13 @@ export const Info = styled.View`
 
 export const Title = styled.Text`
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 `;
 
 export const Artist = styled.Text`
   color: #555;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 3px;
 `;
 

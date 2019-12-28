@@ -21,7 +21,7 @@ class Header extends Component {
             Show da Fé
             <PageSubtitle> Streaming </PageSubtitle>
           </PageTitle>
-          {podcasts.loading && <ActivityIndicator size="small" color="#fff" />}
+          {podcasts.loading && <ActivityIndicator size="small" color="#000" />}
         </PageBar>
       </View>
     );
