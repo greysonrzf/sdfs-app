@@ -4,7 +4,7 @@ import IconLoading from "react-native-vector-icons/Fontisto";
 import IconDots from "react-native-vector-icons/FontAwesome";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ["#fff", "#D9E5FE"]
+  colors: ["#D9E5FE", "#0578ca"]
 })`
   flex: 1;
 `;
@@ -72,23 +72,25 @@ export const Podcast = styled.TouchableOpacity.attrs({
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  margin: 10px 10px 0;
+  margin: 10px 10px 0 55px;
   background: #fff;
-  border-radius: 25px;
+  border-radius: 10px;
 `;
 
 export const Cover = styled.Image`
   width: 65px;
   height: 65px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 25px;
-  border-bottom-left-radius: 10px;
+  margin-left: -50px;
+  border-radius: 35px;
+  /* border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px; */
 `;
 
 export const Info = styled.View`
-  margin-left: 10px;
-  width: 180px;
+  margin-left: 0px;
+  width: 240px;
 `;
 
 export const Title = styled.Text`
