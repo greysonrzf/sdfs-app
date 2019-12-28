@@ -1,31 +1,31 @@
-import './config/StatusBarConfig';
-import './config/ReactotronConfig';
+import "./config/StatusBarConfig";
+import "./config/ReactotronConfig";
 
-import CodePush from 'react-native-code-push';
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import OneSignal from 'react-native-onesignal';
+import CodePush from "react-native-code-push";
+import React, { Component } from "react";
+import { Provider } from "react-redux";
+import OneSignal from "react-native-onesignal";
 
-import store from './store';
-import Routes from './routes';
+import store from "./store";
+import Routes from "./routes";
 
-import Player from './components/Player';
+import Player from "./components/Player";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    OneSignal.init('aa6b246a-cc5c-4eb4-a593-4cc25d89ad71');
+    OneSignal.init("aa6b246a-cc5c-4eb4-a593-4cc25d89ad71");
 
-    OneSignal.addEventListener('received', this.onReceived);
-    OneSignal.addEventListener('opened', this.onOpened);
-    OneSignal.addEventListener('ids', this.onIds);
+    OneSignal.addEventListener("received", this.onReceived);
+    OneSignal.addEventListener("opened", this.onOpened);
+    OneSignal.addEventListener("ids", this.onIds);
   }
 
-  componentDidMount() {
-    OneSignal.removeEventListener('received', this.onReceived);
-    OneSignal.removeEventListener('opened', this.onOpened);
-    OneSignal.removeEventListener('ids', this.onIds);
+  componentWillUnmount() {
+    OneSignal.removeEventListener("received", this.onReceived);
+    OneSignal.removeEventListener("opened", this.onOpened);
+    OneSignal.removeEventListener("ids", this.onIds);
   }
 
   // onReceived: É disparado quando receber uma notificação push
@@ -57,5 +57,5 @@ class App extends Component {
 }
 
 export default CodePush({
-  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME
 })(App);

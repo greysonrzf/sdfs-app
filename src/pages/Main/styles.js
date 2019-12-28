@@ -1,18 +1,18 @@
-import styled from 'styled-components/native';
-import LinearGradient from 'react-native-linear-gradient';
-import IconLoading from 'react-native-vector-icons/Fontisto';
-import IconDots from 'react-native-vector-icons/FontAwesome';
+import styled from "styled-components/native";
+import LinearGradient from "react-native-linear-gradient";
+import IconLoading from "react-native-vector-icons/Fontisto";
+import IconDots from "react-native-vector-icons/FontAwesome";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ['#fff', '#D9E5FE'],
+  colors: ["#fff", "#D9E5FE"]
 })`
   flex: 1;
 `;
 
 export const PodcastList = styled.FlatList.attrs({
   contentContainerStyle: {
-    paddingBottom: 30,
-  },
+    paddingBottom: 30
+  }
 })``;
 
 export const PageBar = styled.View`
@@ -66,7 +66,7 @@ export const ErrorSubText = styled.Text`
 `;
 
 export const Podcast = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.6,
+  activeOpacity: 0.6
 })`
   flex-direction: row;
   align-items: center;
@@ -78,9 +78,12 @@ export const Podcast = styled.TouchableOpacity.attrs({
 `;
 
 export const Cover = styled.Image`
-  width: 75px;
-  height: 75px;
-  border-radius: 19px;
+  width: 65px;
+  height: 65px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 10px;
 `;
 
 export const Info = styled.View`
@@ -90,23 +93,23 @@ export const Info = styled.View`
 
 export const Title = styled.Text`
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 `;
 
 export const Artist = styled.Text`
   color: #555;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 3px;
 `;
 
 export const Count = styled.Text`
   color: #888;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 3px;
 `;
 
 export const DotsIcon = styled(IconDots).attrs({
-  color: '#ccc',
-  size: 26,
+  color: "#ccc",
+  size: 26
 })``;
