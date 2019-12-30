@@ -18,28 +18,37 @@ import {
 
 const Player = ({ player, currentEpisode, play, pause, prev, next }) =>
   player.current && (
-    <Container>
-      <CoverBackground source={{ uri: currentEpisode.artwork }} />
+    <View
+      style={{
+        borderTopLeftRadius: 35,
+        overflow: "hidden"
+      }}
+    >
+      <Container>
+        {/* <CoverBackground source={{ uri: currentEpisode.artwork }} /> */}
 
-      <EpisodeInfo>
-        <Title>{currentEpisode.title}</Title>
-        <Author>{currentEpisode.artist}</Author>
-      </EpisodeInfo>
+        <EpisodeInfo>
+          <Title>{currentEpisode.title}</Title>
+          <Author>{currentEpisode.artist}</Author>
+        </EpisodeInfo>
 
-      <Controls>
-        <ControlButton onPress={prev}>
-          <ControlIcon name="skip-previous" />
-        </ControlButton>
-        <ControlButton onPress={player.playing ? pause : play}>
-          <ControlIcon
-            name={player.playing ? "pause-circle-filled" : "play-circle-filled"}
-          />
-        </ControlButton>
-        <ControlButton onPress={next}>
-          <ControlIcon name="skip-next" />
-        </ControlButton>
-      </Controls>
-    </Container>
+        <Controls>
+          <ControlButton onPress={prev}>
+            <ControlIcon name="skip-previous" />
+          </ControlButton>
+          <ControlButton onPress={player.playing ? pause : play}>
+            <ControlIcon
+              name={
+                player.playing ? "pause-circle-filled" : "play-circle-filled"
+              }
+            />
+          </ControlButton>
+          <ControlButton onPress={next}>
+            <ControlIcon name="skip-next" />
+          </ControlButton>
+        </Controls>
+      </Container>
+    </View>
   );
 
 const mapStateToProps = state => ({

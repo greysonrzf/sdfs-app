@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PlayerActions from "../../store/ducks/player";
 
+import Player from "../../components/Player";
+
 import {
   Container,
   EpisodeList,
@@ -80,6 +82,7 @@ class Podcasts extends Component {
             </Episode>
           )}
         />
+        <Player />
       </Container>
     );
   }

@@ -5,7 +5,9 @@ import { getBottomSpace } from "react-native-iphone-x-helper";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ["#D9E5FE", "#fff"]
+  colors: ["#D9E5FE", "#fff"],
+  borderTopLeftRadius: 35,
+  overflow: "hidden"
 })`
   height: ${74 + getBottomSpace()}px;
   width: 100%;
@@ -14,18 +16,22 @@ export const Container = styled(LinearGradient).attrs({
   justify-content: space-between;
   align-items: center;
   padding: 0 20px ${getBottomSpace()}px;
+  border-top-left-radius: 35px;
 `;
 
-export const CoverBackground = styled.Image.attrs({
-  blurRadius: 5
-})`
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  opacity: 0;
-`;
+export const CoverBackground = styled.View``;
+
+// export const CoverBackground = styled.Image.attrs({
+//   blurRadius: 5
+// })`
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   top: 0;
+//   opacity: 1;
+//   border-top-left-radius: 25px;
+// `;
 
 export const EpisodeInfo = styled.View``;
 
