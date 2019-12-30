@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -7,7 +6,6 @@ import PlayerActions from "../../store/ducks/player";
 
 import {
   Container,
-  CoverBackground,
   EpisodeInfo,
   Title,
   Author,
@@ -19,8 +17,6 @@ import {
 const Player = ({ player, currentEpisode, play, pause, prev, next }) =>
   player.current && (
     <Container>
-      <CoverBackground source={{ uri: currentEpisode.artwork }} />
-
       <EpisodeInfo>
         <Title>{currentEpisode.title}</Title>
         <Author>{currentEpisode.artist}</Author>

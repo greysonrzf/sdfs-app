@@ -5,7 +5,13 @@ import { getBottomSpace } from "react-native-iphone-x-helper";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ["#D9E5FE", "#fff"]
+  colors: ["#D9E5FE", "#fff"],
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  right: 0,
+  borderTopLeftRadius: 38,
+  overflow: "hidden"
 })`
   height: ${74 + getBottomSpace()}px;
   width: 100%;
