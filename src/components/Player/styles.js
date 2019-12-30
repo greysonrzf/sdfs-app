@@ -5,7 +5,7 @@ import { getBottomSpace } from "react-native-iphone-x-helper";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ["#D9E5FE", "#fff"],
+  colors: ["#b9cffd", "#fff"],
   position: "absolute",
   bottom: 0,
   left: 0,
@@ -20,17 +20,6 @@ export const Container = styled(LinearGradient).attrs({
   justify-content: space-between;
   align-items: center;
   padding: 0 20px ${getBottomSpace()}px;
-`;
-
-export const CoverBackground = styled.Image.attrs({
-  blurRadius: 5
-})`
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  opacity: 0;
 `;
 
 export const EpisodeInfo = styled.View``;

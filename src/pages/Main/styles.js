@@ -11,7 +11,7 @@ export const Container = styled(LinearGradient).attrs({
 
 export const PodcastList = styled.FlatList.attrs({
   contentContainerStyle: {
-    paddingBottom: 30
+    paddingBottom: 40
   }
 })``;
 
