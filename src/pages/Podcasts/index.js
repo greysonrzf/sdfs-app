@@ -18,6 +18,8 @@ import {
   Count,
   PlayButton,
   PlayButtonIcon,
+  PlayListHeader,
+  PlayListText,
   Episode,
   Title,
   Author
@@ -65,6 +67,9 @@ class Podcasts extends Component {
               <PlayButton onPress={() => this.handlePlay()}>
                 <PlayButtonIcon name="controller-play" />
               </PlayButton>
+              <PlayListHeader>
+                <PlayListText>Playlist</PlayListText>
+              </PlayListHeader>
             </PodcastDetails>
           )}
           data={podcast.tracks}
