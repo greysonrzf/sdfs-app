@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import LinearGradient from "react-native-linear-gradient";
 import IconPlay from "react-native-vector-icons/Entypo";
+import IconShare from "react-native-vector-icons/Entypo";
 
 export const Container = styled(LinearGradient).attrs({
   colors: ["#fff", "#D9E5FE"]
@@ -16,7 +17,7 @@ export const EpisodeList = styled.FlatList.attrs({
 export const PodcastDetails = styled.View`
   padding: 0 0 20px;
   align-items: center;
-  padding-top: ${getStatusBarHeight() + 10}px;
+  padding-top: ${getStatusBarHeight() + 25}px;
 `;
 
 export const BackgroundGradient = styled.View`
@@ -24,13 +25,16 @@ export const BackgroundGradient = styled.View`
   background: #000;
   width: 100%;
   height: ${320 + getStatusBarHeight()}px;
+  border-bottom-left-radius: 50px;
 `;
 
-export const Background = styled.ImageBackground`
+export const Background = styled.ImageBackground.attrs({
+  imageStyle: { borderBottomLeftRadius: 50 }
+})`
   position: absolute;
   width: 100%;
   height: ${320 + getStatusBarHeight()}px;
-  opacity: 0.1;
+  opacity: 0.3;
 `;
 
 export const BackButton = styled.TouchableOpacity.attrs({
@@ -38,7 +42,7 @@ export const BackButton = styled.TouchableOpacity.attrs({
 })`
   position: absolute;
   left: 30px;
-  top: ${getStatusBarHeight() + 10}px;
+  top: ${getStatusBarHeight() + 25}px;
 `;
 
 export const Cover = styled.Image`
@@ -64,7 +68,7 @@ export const PlayButton = styled.TouchableOpacity.attrs({
   height: 55px;
   width: 55px;
   background: #0448b4;
-  margin: 15px 0 0 75%;
+  margin: 0 0 0 75%;
   border-radius: 50px;
   elevation: 10;
 
@@ -78,16 +82,21 @@ export const PlayButtonText = styled.Text`
   font-weight: bold;
   font-size: 16px;
   letter-spacing: 1.5px;
+  margin-left: 10px;
 `;
 
 export const PlayButtonIcon = styled(IconPlay).attrs({
   color: "#fff",
   size: 26
-})``;
+})`
+  margin-left: 3px;
+`;
 
 export const Episode = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: space-between;
   margin: 10px 5px 0;
-  padding: 15px 20px;
+  padding: 12px 20px;
   background: #fff;
   border-radius: 10px;
 `;
@@ -100,6 +109,22 @@ export const Title = styled.Text`
 
 export const Author = styled.Text`
   color: #666666;
-  font-size: 13px;
+  font-size: 12px;
   margin-top: 3px;
 `;
+
+export const ShareButton = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.8
+})` 
+  height: auto; 
+  width: 40px; 
+  align-self: stretch; 
+  align-items: center; 
+  justify-content: center; 
+`;
+
+export const ShareButtonIcon = styled(IconShare).attrs({
+  color: "#cce2ff",
+  size: 26
+})`
+  `; 
