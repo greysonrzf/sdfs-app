@@ -21,19 +21,9 @@ export const Container = styled(LinearGradient).attrs({
 
 export const CoverBackground = styled.View``;
 
-// export const CoverBackground = styled.Image.attrs({
-//   blurRadius: 5
-// })`
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   top: 0;
-//   opacity: 1;
-//   border-top-left-radius: 25px;
-// `;
-
-export const EpisodeInfo = styled.View``;
+export const EpisodeInfo = styled.View`
+  flex: 1;
+`;
 
 export const Title = styled.Text`
   font-size: 14px;
