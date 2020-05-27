@@ -91,6 +91,17 @@ export const PlayButton = styled.TouchableOpacity.attrs({
   justify-content: center;
 `;
 
+export const ShareButton = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.8
+})`
+  height: 40px;
+  width: 40px;
+
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const PlayButtonText = styled.Text`
   color: #fff;
   font-weight: bold;
@@ -107,10 +118,10 @@ export const PlayButtonIcon = styled(IconPlay).attrs({
 `;
 
 export const ShareButtonIcon = styled(IconShare).attrs({
-  color: "#ccc",
+  color: "#cce2ff",
   size: 26
 })`
-  margin-top: 6px;
+  margin-top: 5px;
 `;
 
 export const Episode = styled.TouchableOpacity`

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StatusBar, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { Share } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -18,6 +19,7 @@ import {
   Count,
   PlayButton,
   PlayButtonIcon,
+  ShareButton,
   ShareButtonIcon,
   PlayListHeader,
   PlayListText,
@@ -38,6 +40,19 @@ class Podcasts extends Component {
 
     setPodcastRequest(podcast, episodeId);
   };
+
+  handleShare = (title, artist) => {
+    Share.share({
+      message: `Ouça *${title}* por ${artist} em Show da Fé Streaming. Baixe *Show da Fé Streaming* na Play Store e ouça mensagens que mudarão sua vida. https://play.google.com/store/apps/details?id=com.showdafestreaming`,
+      url: 'https://play.google.com/store/apps/details?id=com.showdafestreaming',
+      title: `Ouça *${title}* de ${artist} em Show da Fé Streaming.`
+    }, {
+      dialogTitle: `Compartilhe ${title}`, // Android only
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ] // iOS only
+    })
+  }
 
   render() {
     const { navigation, currentEpisode } = this.props;
@@ -86,7 +101,9 @@ class Podcasts extends Component {
                 </Title>
                 <Author>{episode.artist}</Author>
               </View>
-              <ShareButtonIcon name="share" />
+              <ShareButton onPress={() => this.handleShare(episode.title, episode.artist, episode.url)}>
+                <ShareButtonIcon name="share" />
+              </ShareButton>
             </Episode>
           )}
         />
