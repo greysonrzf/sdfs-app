@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import LinearGradient from "react-native-linear-gradient";
 import IconPlay from "react-native-vector-icons/Entypo";
+import IconShare from "react-native-vector-icons/Entypo";
 
 export const Container = styled(LinearGradient).attrs({
   colors: ["#fff", "#D9E5FE"]
@@ -105,7 +106,16 @@ export const PlayButtonIcon = styled(IconPlay).attrs({
   margin-left: 3px;
 `;
 
+export const ShareButtonIcon = styled(IconShare).attrs({
+  color: "#ccc",
+  size: 26
+})`
+  margin-top: 6px;
+`;
+
 export const Episode = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: space-between;
   margin: 10px 5px 0;
   padding: 15px 20px;
   background: #fff;

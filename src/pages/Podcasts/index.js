@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 import { connect } from "react-redux";
@@ -18,6 +18,7 @@ import {
   Count,
   PlayButton,
   PlayButtonIcon,
+  ShareButtonIcon,
   PlayListHeader,
   PlayListText,
   Episode,
@@ -41,6 +42,7 @@ class Podcasts extends Component {
   render() {
     const { navigation, currentEpisode } = this.props;
     const podcast = navigation.getParam("podcast");
+
 
     return (
       <Container>
@@ -76,12 +78,15 @@ class Podcasts extends Component {
           keyExtractor={episode => String(episode.id)}
           renderItem={({ item: episode }) => (
             <Episode onPress={() => this.handlePlay(episode.id)}>
-              <Title
-                active={currentEpisode && currentEpisode.id === episode.id}
-              >
-                {episode.title}
-              </Title>
-              <Author>{episode.artist}</Author>
+              <View>
+                <Title
+                  active={currentEpisode && currentEpisode.id === episode.id}
+                >
+                  {episode.title}
+                </Title>
+                <Author>{episode.artist}</Author>
+              </View>
+              <ShareButtonIcon name="share" />
             </Episode>
           )}
         />
@@ -93,8 +98,8 @@ class Podcasts extends Component {
 const mapStateToProps = state => ({
   currentEpisode: state.player.podcast
     ? state.player.podcast.tracks.find(
-        episode => episode.id === state.player.current
-      )
+      episode => episode.id === state.player.current
+    )
     : null
 });
 
