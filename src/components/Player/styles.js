@@ -5,15 +5,18 @@ import { getBottomSpace } from "react-native-iphone-x-helper";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ["#b9cffd", "#fff"],
+  colors: ["#1715b3", "#3499ff"],
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 },
+  borderTopRightRadius: 35,
+  borderBottomRightRadius: 35,
   position: "absolute",
   bottom: 0,
   left: 0,
   right: 0,
-  borderTopLeftRadius: 38,
   overflow: "hidden"
 })`
-  height: ${74 + getBottomSpace()}px;
+  height: ${70 + getBottomSpace()}px;
   width: 100%;
 
   flex-direction: row;
@@ -27,12 +30,12 @@ export const EpisodeInfo = styled.View``;
 export const Title = styled.Text`
   font-size: 14px;
   font-weight: bold;
-  color: #000;
+  color: #fff;
 `;
 
 export const Author = styled.Text`
   font-size: 12px;
-  color: #444;
+  color: #92c2fe;
   margin-top: 3px;
 `;
 
@@ -47,6 +50,6 @@ export const ControlButton = styled.TouchableOpacity.attrs({
 `;
 
 export const ControlIcon = styled(Icon).attrs({
-  color: "#222",
+  color: "#fff",
   size: 32
 })``;
