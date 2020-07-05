@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { StatusBar } from "react-native";
+import { View, StatusBar } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { Share } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -22,7 +23,9 @@ import {
   PlayListText,
   Episode,
   Title,
-  Author
+  Author,
+  ShareButton,
+  ShareButtonIcon
 } from "./styles";
 
 class Podcasts extends Component {
@@ -37,6 +40,19 @@ class Podcasts extends Component {
 
     setPodcastRequest(podcast, episodeId);
   };
+
+  handleShare = (title, artist) => {
+    Share.share({
+      message: `Ouça *${title}* por ${artist} em Show da Fé Streaming. Baixe *Show da Fé Streaming* na Play Store e ouça mensagens que transformarão sua vida. https://play.google.com/store/apps/details?id=com.showdafestreaming`,
+      url: 'https://play.google.com/store/apps/details?id=com.showdafestreaming',
+      title: `Ouça *${title}* de ${artist} em Show da Fé Streaming.`
+    }, {
+      dialogTitle: `Compartilhe a mensagem ${title}`, // Android only 
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ] // iOS only 
+    })
+  }
 
   render() {
     const { navigation, currentEpisode } = this.props;
@@ -67,21 +83,24 @@ class Podcasts extends Component {
               <PlayButton onPress={() => this.handlePlay()}>
                 <PlayButtonIcon name="controller-play" />
               </PlayButton>
-              <PlayListHeader>
-                <PlayListText>Playlist</PlayListText>
-              </PlayListHeader>
+
             </PodcastDetails>
           )}
           data={podcast.tracks}
           keyExtractor={episode => String(episode.id)}
           renderItem={({ item: episode }) => (
             <Episode onPress={() => this.handlePlay(episode.id)}>
-              <Title
-                active={currentEpisode && currentEpisode.id === episode.id}
-              >
-                {episode.title}
-              </Title>
-              <Author>{episode.artist}</Author>
+              <View style={{ flex: 1 }}>
+                <Title
+                  active={currentEpisode && currentEpisode.id === episode.id}
+                >
+                  {episode.title}
+                </Title>
+                <Author>{episode.artist}</Author>
+              </View>
+              <ShareButton onPress={() => this.handleShare(episode.title, episode.artist)}>
+                <ShareButtonIcon name="share" />
+              </ShareButton>
             </Episode>
           )}
         />
@@ -93,8 +112,8 @@ class Podcasts extends Component {
 const mapStateToProps = state => ({
   currentEpisode: state.player.podcast
     ? state.player.podcast.tracks.find(
-        episode => episode.id === state.player.current
-      )
+      episode => episode.id === state.player.current
+    )
     : null
 });
 
