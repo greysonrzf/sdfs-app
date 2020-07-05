@@ -32,19 +32,19 @@ class App extends Component {
   // e o usuário ja estiver com a tela aberta
   // Dentro do data virão todas as informações da notificação
 
-  onReceived = data => {};
+  onReceived = data => { };
 
   // onOpened: É disparado quando o usuário clica em uma notificação estando com a
   // tela fechada, é possível enviar o usuário para uma tela
   // especifica
 
-  onOpened = notification => {};
+  onOpened = notification => { };
 
   // onIds: É disparado quando o usuário faz o registro no serviço de notificações
   // Relacionar o usuario com o Id de notificação que pode ser armazenado
   // localstorage ou com usuário se o login é exigido
 
-  onIds = id => {};
+  onIds = id => { };
 
   render() {
     return (

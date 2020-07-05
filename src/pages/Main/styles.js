@@ -4,9 +4,35 @@ import IconLoading from "react-native-vector-icons/Fontisto";
 import IconDots from "react-native-vector-icons/FontAwesome";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ["#fff", "#D9E5FE"]
+  colors: ["#D9E5FE", "#D9E5FE"]
 })`
   flex: 1;
+`;
+
+export const VerseDay = styled(LinearGradient).attrs({
+  colors: ["#3b41ff", "#3bd8ff"],
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 },
+})`
+  flex-direction: column;
+  
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin: 10px 10px 0;
+  background: #fff;
+  border-radius: 20px;
+`;
+
+export const VerseText = styled.Text`
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+
+`;
+export const VerseReference = styled.Text`
+  color: #92c2fe;
+  font-size: 12px;
+  margin-top: 3px;
 `;
 
 export const PodcastList = styled.FlatList.attrs({
@@ -74,21 +100,22 @@ export const Podcast = styled.TouchableOpacity.attrs({
   padding: 10px 20px;
   margin: 10px 10px 0;
   background: #fff;
-  border-radius: 25px;
+  border-radius: 20px;
 `;
 
 export const Cover = styled.Image`
   width: 65px;
   height: 65px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 25px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 `;
 
 export const Info = styled.View`
   margin-left: 10px;
-  width: 180px;
+  padding-left: 5px;
+  width: 70%;
 `;
 
 export const Title = styled.Text`
