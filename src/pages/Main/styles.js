@@ -15,9 +15,8 @@ export const VerseDay = styled(LinearGradient).attrs({
   end: { x: 1, y: 1 },
 })`
   flex-direction: column;
-  
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 10px 25px;
   margin: 10px 10px 0;
   background: #fff;
   border-radius: 20px;
