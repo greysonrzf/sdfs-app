@@ -25,7 +25,9 @@ export const Container = styled(LinearGradient).attrs({
   padding: 0 20px ${getBottomSpace()}px;
 `;
 
-export const EpisodeInfo = styled.View``;
+export const EpisodeInfo = styled.View`
+  flex: 1;
+`;
 
 export const Title = styled.Text`
   font-size: 14px;
