@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -7,7 +6,6 @@ import PlayerActions from "../../store/ducks/player";
 
 import {
   Container,
-  CoverBackground,
   EpisodeInfo,
   Title,
   Author,
@@ -18,37 +16,26 @@ import {
 
 const Player = ({ player, currentEpisode, play, pause, prev, next }) =>
   player.current && (
-    <View
-      style={{
-        borderTopLeftRadius: 35,
-        overflow: "hidden"
-      }}
-    >
-      <Container>
-        {/* <CoverBackground source={{ uri: currentEpisode.artwork }} /> */}
+    <Container>
+      <EpisodeInfo>
+        <Title>{currentEpisode.title}</Title>
+        <Author>{currentEpisode.artist}</Author>
+      </EpisodeInfo>
 
-        <EpisodeInfo>
-          <Title>{currentEpisode.title}</Title>
-          <Author>{currentEpisode.artist}</Author>
-        </EpisodeInfo>
-
-        <Controls>
-          <ControlButton onPress={prev}>
-            <ControlIcon name="skip-previous" />
-          </ControlButton>
-          <ControlButton onPress={player.playing ? pause : play}>
-            <ControlIcon
-              name={
-                player.playing ? "pause-circle-filled" : "play-circle-filled"
-              }
-            />
-          </ControlButton>
-          <ControlButton onPress={next}>
-            <ControlIcon name="skip-next" />
-          </ControlButton>
-        </Controls>
-      </Container>
-    </View>
+      <Controls>
+        <ControlButton onPress={prev}>
+          <ControlIcon name="skip-previous" />
+        </ControlButton>
+        <ControlButton onPress={player.playing ? pause : play}>
+          <ControlIcon
+            name={player.playing ? "pause-circle-filled" : "play-circle-filled"}
+          />
+        </ControlButton>
+        <ControlButton onPress={next}>
+          <ControlIcon name="skip-next" />
+        </ControlButton>
+      </Controls>
+    </Container>
   );
 
 const mapStateToProps = state => ({

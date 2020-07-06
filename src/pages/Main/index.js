@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { StatusBar } from "react-native";
+import axios from "axios"
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PodcastsActions from "../../store/ducks/podcasts";
 
 import { View, ActivityIndicator } from "react-native";
+
+
 
 import Header from "../../components/Header";
 import Player from "../../components/Player";
@@ -25,13 +28,29 @@ import {
   Title,
   Artist,
   Count,
-  DotsIcon
+  DotsIcon,
+  VerseDay,
+  VerseText,
+  VerseReference
 } from "./styles";
 
 class Main extends Component {
-  componentDidMount() {
+  state = {
+    verseOfDay: {}
+  }
+
+  async componentDidMount() {
     const { loadRequest } = this.props;
     loadRequest();
+
+    try {
+      const response = await axios.get('http://webserverhomolog.ongrace.com/versiculo.json')
+
+      this.setState({ verseOfDay: response.data.resposta })
+    } catch (err) {
+      this.setState({ verseOfDay: { error: true } })
+    }
+
   }
 
   handlePodcastPress = podcast => {
@@ -53,8 +72,20 @@ class Main extends Component {
     );
   };
 
+  renderVerse = () => {
+    const { verseOfDay } = this.state
+    return (
+      <VerseDay>
+        <VerseText>{verseOfDay.versiculo}</VerseText>
+        <VerseReference>{verseOfDay.referencia}</VerseReference>
+      </VerseDay>
+    )
+  }
+
   render() {
     const { podcasts } = this.props;
+    const { verseOfDay } = this.state;
+
     return (
       <Container>
         <StatusBar
@@ -65,7 +96,10 @@ class Main extends Component {
         <Header />
         <PodcastList
           ListHeaderComponent={() => (
-            <View>{podcasts.error && this.renderError()}</View>
+            <>
+              <View>{podcasts.error && this.renderError()}</View>
+              <View>{!verseOfDay.error && this.renderVerse()}</View>
+            </>
           )}
           data={podcasts.data}
           keyExtractor={podcast => String(podcast.id)}

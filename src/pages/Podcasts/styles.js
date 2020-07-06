@@ -11,7 +11,7 @@ export const Container = styled(LinearGradient).attrs({
 `;
 
 export const EpisodeList = styled.FlatList.attrs({
-  contentContainerStyle: { paddingBottom: 30 }
+  contentContainerStyle: { paddingBottom: 40 }
 })``;
 
 export const PodcastDetails = styled.View`
@@ -55,11 +55,25 @@ export const PodcastTitle = styled.Text`
   font-size: 24px;
   font-weight: bold;
   color: #fff;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const Count = styled.Text`
   color: #92c2fe;
+`;
+
+export const PlayListHeader = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 5px 15px;
+`;
+
+export const PlayListText = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
 `;
 
 export const PlayButton = styled.TouchableOpacity.attrs({
@@ -96,7 +110,7 @@ export const Episode = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: space-between;
   margin: 10px 5px 0;
-  padding: 12px 20px;
+  padding: 15px 10px 15px 20px;
   background: #fff;
   border-radius: 10px;
 `;
@@ -125,6 +139,6 @@ export const ShareButton = styled.TouchableOpacity.attrs({
 
 export const ShareButtonIcon = styled(IconShare).attrs({
   color: "#cce2ff",
-  size: 26
+  size: 25
 })`
   `; 

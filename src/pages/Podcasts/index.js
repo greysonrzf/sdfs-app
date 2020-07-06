@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { StatusBar, View } from "react-native";
+
+import { View, StatusBar } from "react-native";
+
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { Share } from "react-native";
 
@@ -21,6 +23,8 @@ import {
   Count,
   PlayButton,
   PlayButtonIcon,
+  PlayListHeader,
+  PlayListText,
   Episode,
   Title,
   Author,
@@ -83,6 +87,7 @@ class Podcasts extends Component {
               <PlayButton onPress={() => this.handlePlay()}>
                 <PlayButtonIcon name="controller-play" />
               </PlayButton>
+
             </PodcastDetails>
           )}
           data={podcast.tracks}
