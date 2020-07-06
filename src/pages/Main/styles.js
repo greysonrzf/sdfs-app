@@ -4,9 +4,23 @@ import IconLoading from "react-native-vector-icons/Fontisto";
 import IconDots from "react-native-vector-icons/FontAwesome";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ["#D9E5FE", "#D9E5FE"]
+  colors: ["#FFF", "#D9E5FE"]
 })`
   flex: 1;
+`;
+
+export const PodcastTitle = styled.Text`
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0 0 10px; 
+`;
+
+export const SectionTitle = styled.Text`
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0 0 10px; 
 `;
 
 export const VerseDay = styled(LinearGradient).attrs({
@@ -34,35 +48,51 @@ export const VerseReference = styled.Text`
   margin-top: 3px;
 `;
 
+export const MessageDay = styled(LinearGradient).attrs({
+  colors: ["#5b146f", "#ff009c"],
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 },
+})`
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 25px;
+  margin: 10px 10px 0;
+  background: #fff;
+  border-radius: 20px;
+`;
+
+export const MessageTitle = styled.Text`
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+`;
+
+export const MessageSummary = styled.Text`
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 3px;
+`;
+
+export const MessageVerse = styled.Text`
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+`;
+
+export const MessageReference = styled.Text`
+  color: #ccc;
+  font-size: 12px;
+  margin: 3px 0 5px;
+`;
+
 export const PodcastList = styled.FlatList.attrs({
   contentContainerStyle: {
     paddingBottom: 40
   }
 })``;
-
-export const PageBar = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
-`;
-
-export const PageTitle = styled.Text`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: left;
-  color: #000;
-`;
-
-export const PageSubtitle = styled.Text`
-  font-size: 22px;
-  font-weight: normal;
-  color: #000;
-`;
 
 export const Error = styled.View`
   flex-direction: column;

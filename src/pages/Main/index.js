@@ -8,9 +8,7 @@ import PodcastsActions from "../../store/ducks/podcasts";
 
 import { View, ActivityIndicator } from "react-native";
 
-
-
-import Header from "../../components/Header";
+import Header from "../../components/Header"
 import Player from "../../components/Player";
 
 import {
@@ -19,9 +17,6 @@ import {
   ErrorText,
   ErrorSubText,
   PodcastList,
-  PageBar,
-  PageTitle,
-  PageSubtitle,
   Podcast,
   Cover,
   Info,
@@ -29,14 +24,22 @@ import {
   Artist,
   Count,
   DotsIcon,
+  PodcastTitle,
+  SectionTitle,
   VerseDay,
   VerseText,
-  VerseReference
+  VerseReference,
+  MessageDay,
+  MessageTitle,
+  MessageSummary,
+  MessageVerse,
+  MessageReference
 } from "./styles";
 
 class Main extends Component {
   state = {
-    verseOfDay: {}
+    verseOfDay: {},
+    messageOfDay: {}
   }
 
   async componentDidMount() {
@@ -44,11 +47,19 @@ class Main extends Component {
     loadRequest();
 
     try {
-      const response = await axios.get('http://webserverhomolog.ongrace.com/versiculo.json')
+      const responseVerse = await axios.get('http://webserverhomolog.ongrace.com/versiculo.json')
 
-      this.setState({ verseOfDay: response.data.resposta })
+      this.setState({ verseOfDay: responseVerse.data.resposta })
+
+      const responseMessage = await axios.get('http://webserverhomolog.ongrace.com/mensagemdia.json')
+
+      this.setState({ messageOfDay: responseMessage.data.resposta[0] })
+
+      console.tron.log(this.state)
     } catch (err) {
       this.setState({ verseOfDay: { error: true } })
+
+      this.setState({ messageOfDay: { error: true } })
     }
 
   }
@@ -75,16 +86,33 @@ class Main extends Component {
   renderVerse = () => {
     const { verseOfDay } = this.state
     return (
-      <VerseDay>
-        <VerseText>{verseOfDay.versiculo}</VerseText>
-        <VerseReference>{verseOfDay.referencia}</VerseReference>
-      </VerseDay>
+      <>
+        <SectionTitle>Mensagens</SectionTitle>
+        <VerseDay>
+          <VerseText>{verseOfDay.versiculo}</VerseText>
+          <VerseReference>{verseOfDay.referencia}</VerseReference>
+        </VerseDay>
+      </>
+    )
+  }
+
+  renderMessage = () => {
+    const { messageOfDay } = this.state
+    return (
+      <>
+        <MessageDay>
+          <MessageTitle>{messageOfDay.titulo}</MessageTitle>
+          <MessageVerse>{messageOfDay.versiculo}</MessageVerse>
+          <MessageReference>{messageOfDay.referencia}</MessageReference>
+          <MessageSummary>{messageOfDay.resumo}</MessageSummary>
+        </MessageDay>
+      </>
     )
   }
 
   render() {
     const { podcasts } = this.props;
-    const { verseOfDay } = this.state;
+    const { verseOfDay, messageOfDay } = this.state;
 
     return (
       <Container>
@@ -99,6 +127,8 @@ class Main extends Component {
             <>
               <View>{podcasts.error && this.renderError()}</View>
               <View>{!verseOfDay.error && this.renderVerse()}</View>
+              <View>{!messageOfDay.error && this.renderMessage()}</View>
+              <PodcastTitle>Podcasts</PodcastTitle>
             </>
           )}
           data={podcasts.data}
