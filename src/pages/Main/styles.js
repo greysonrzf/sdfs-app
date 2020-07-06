@@ -4,7 +4,7 @@ import IconLoading from "react-native-vector-icons/Fontisto";
 import Icons from "react-native-vector-icons/FontAwesome";
 
 export const Container = styled(LinearGradient).attrs({
-  colors: ["#FFF", "#D9E5FE"]
+  colors: ["#fff", "#e8efff"]
 })`
   flex: 1;
 `;
@@ -13,14 +13,14 @@ export const PodcastTitle = styled.Text`
   color: #000;
   font-size: 22px;
   font-weight: bold;
-  margin: 25px 0 0 10px; 
+  margin: 25px 0 0 20px; 
 `;
 
 export const SectionTitle = styled.Text`
   color: #000;
   font-size: 22px;
   font-weight: bold;
-  margin: 10px 0 0 10px; 
+  margin: 10px 0 0 20px; 
 `;
 
 export const VerseDay = styled(LinearGradient).attrs({
@@ -56,7 +56,7 @@ export const MessageDay = styled(LinearGradient).attrs({
   flex-direction: column;
   justify-content: space-between;
   padding: 15px 25px;
-  margin: 15px 10px 0;
+  margin: 15px 10px 10px;
   background: #fff;
   border-radius: 20px;
 `;

@@ -43,7 +43,7 @@ class Main extends Component {
   state = {
     verseOfDay: {},
     messageOfDay: {},
-    error: false
+    error: null
   }
 
   async componentDidMount() {
@@ -52,20 +52,13 @@ class Main extends Component {
 
     try {
       const responseVerse = await axios.get('http://webserverhomolog.ongrace.com/versiculo.json')
-
       this.setState({ verseOfDay: responseVerse.data.resposta })
 
       const responseMessage = await axios.get('http://webserverhomolog.ongrace.com/mensagemdia.json')
-
       this.setState({ messageOfDay: responseMessage.data.resposta[0] })
-
-      console.tron.log(this.state)
     } catch (err) {
       this.setState({ error: true })
-
-
     }
-
   }
 
   handlePodcastPress = podcast => {
@@ -91,7 +84,6 @@ class Main extends Component {
     const { verseOfDay, messageOfDay } = this.state
     return (
       <>
-        <SectionTitle>Mensagens</SectionTitle>
         <VerseDay>
           <VerseText>{verseOfDay.versiculo}</VerseText>
           <VerseReference>{verseOfDay.referencia}</VerseReference>
@@ -110,7 +102,6 @@ class Main extends Component {
 
   render() {
     const { podcasts } = this.props;
-    const { error } = this.state;
 
     return (
       <Container>
@@ -123,9 +114,7 @@ class Main extends Component {
         <PodcastList
           ListHeaderComponent={() => (
             <>
-              <View>{podcasts.error && this.renderError()}</View>
-              <View>{!error && this.renderMessage()}</View>
-              <PodcastTitle>Podcasts</PodcastTitle>
+              <View>{podcasts.error ? this.renderError() : this.renderMessage()}</View>
             </>
           )}
           data={podcasts.data}
