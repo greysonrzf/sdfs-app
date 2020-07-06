@@ -14,7 +14,9 @@ import {
   BackgroundGradient,
   Background,
   BackButton,
+  CoverFrame,
   Cover,
+  PlayFrame,
   PodcastTitle,
   Count,
   PlayButton,
@@ -75,14 +77,22 @@ class Podcasts extends Component {
                 <Icon name="arrow-back" size={24} color="#FFF" />
               </BackButton>
 
-              <Cover source={{ uri: podcast.cover }} />
-
-              <PodcastTitle>{podcast.title}</PodcastTitle>
+              <PlayListHeader>
+                <PlayListText>Playlist</PlayListText>
+              </PlayListHeader>
               <Count>{podcast.tracks.length} episódios</Count>
+              <CoverFrame>
+                <Cover source={{ uri: podcast.cover }} />
+                <PlayFrame>
+                  <PodcastTitle>{podcast.title}</PodcastTitle>
+                  <PlayButton onPress={() => this.handlePlay()}>
+                    <PlayButtonIcon name="controller-play" />
+                  </PlayButton>
+                </PlayFrame>
+              </CoverFrame>
 
-              <PlayButton onPress={() => this.handlePlay()}>
-                <PlayButtonIcon name="controller-play" />
-              </PlayButton>
+
+
 
             </PodcastDetails>
           )}

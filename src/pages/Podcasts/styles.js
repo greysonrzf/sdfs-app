@@ -16,7 +16,7 @@ export const EpisodeList = styled.FlatList.attrs({
 
 export const PodcastDetails = styled.View`
   padding: 0 0 20px;
-  align-items: center;
+  align-items:center;
   padding-top: ${getStatusBarHeight() + 25}px;
 `;
 
@@ -24,7 +24,7 @@ export const BackgroundGradient = styled.View`
   position: absolute;
   background: #000;
   width: 100%;
-  height: ${320 + getStatusBarHeight()}px;
+  height: ${300 + getStatusBarHeight()}px;
   border-bottom-left-radius: 50px;
 `;
 
@@ -33,7 +33,7 @@ export const Background = styled.ImageBackground.attrs({
 })`
   position: absolute;
   width: 100%;
-  height: ${320 + getStatusBarHeight()}px;
+  height: ${300 + getStatusBarHeight()}px;
   opacity: 0.3;
 `;
 
@@ -45,47 +45,67 @@ export const BackButton = styled.TouchableOpacity.attrs({
   top: ${getStatusBarHeight() + 25}px;
 `;
 
+export const CoverFrame = styled.View`
+  margin-top: 30px;
+  elevation: 10;
+`;
+
 export const Cover = styled.Image`
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
+  width: 210px;
+  height: 260px;
+  border-radius: 20px;
+`;
+
+export const PlayFrame = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 210px;
+  padding: 15px;
+  margin-top: -70px;
 `;
 
 export const PodcastTitle = styled.Text`
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: #fff;
-  margin-top: 10px;
+  width: 130px;
 `;
 
 export const Count = styled.Text`
-  color: #92c2fe;
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  left: -5px;
+  top: ${getStatusBarHeight() + 130}px;
+  transform: rotate(270deg);
 `;
 
 export const PlayListHeader = styled.View`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   padding: 5px 15px;
+  margin-top: -10px;
 `;
 
 export const PlayListText = styled.Text`
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: #fff;
 `;
 
 export const PlayButton = styled.TouchableOpacity.attrs({
   activeOpacity: 0.8
 })`
-  height: 55px;
-  width: 55px;
-  background: #0448b4;
-  margin: 0 0 0 75%;
-  border-radius: 50px;
+  height: 45px;
+  width: 45px;
+  background: #fff;
+  border-radius: 15px;
   elevation: 10;
-
+  margin-left: 10px;
   align-self: stretch;
   align-items: center;
   justify-content: center;
@@ -100,7 +120,7 @@ export const PlayButtonText = styled.Text`
 `;
 
 export const PlayButtonIcon = styled(IconPlay).attrs({
-  color: "#fff",
+  color: "#0448b4",
   size: 26
 })`
   margin-left: 3px;
