@@ -32,6 +32,9 @@ import {
   MessageDay,
   MessageTitle,
   MessageSummary,
+  MessageFooter,
+  MessageDate,
+  ReadIcon,
   MessageVerse,
   MessageReference
 } from "./styles";
@@ -39,7 +42,8 @@ import {
 class Main extends Component {
   state = {
     verseOfDay: {},
-    messageOfDay: {}
+    messageOfDay: {},
+    error: false
   }
 
   async componentDidMount() {
@@ -57,9 +61,9 @@ class Main extends Component {
 
       console.tron.log(this.state)
     } catch (err) {
-      this.setState({ verseOfDay: { error: true } })
+      this.setState({ error: true })
 
-      this.setState({ messageOfDay: { error: true } })
+
     }
 
   }
@@ -83,8 +87,8 @@ class Main extends Component {
     );
   };
 
-  renderVerse = () => {
-    const { verseOfDay } = this.state
+  renderMessage = () => {
+    const { verseOfDay, messageOfDay } = this.state
     return (
       <>
         <SectionTitle>Mensagens</SectionTitle>
@@ -92,19 +96,13 @@ class Main extends Component {
           <VerseText>{verseOfDay.versiculo}</VerseText>
           <VerseReference>{verseOfDay.referencia}</VerseReference>
         </VerseDay>
-      </>
-    )
-  }
-
-  renderMessage = () => {
-    const { messageOfDay } = this.state
-    return (
-      <>
         <MessageDay>
           <MessageTitle>{messageOfDay.titulo}</MessageTitle>
-          <MessageVerse>{messageOfDay.versiculo}</MessageVerse>
-          <MessageReference>{messageOfDay.referencia}</MessageReference>
           <MessageSummary>{messageOfDay.resumo}</MessageSummary>
+          <MessageFooter>
+            <MessageDate>{messageOfDay.data_publicacao_formatada}</MessageDate>
+            <ReadIcon name="chevron-circle-right" />
+          </MessageFooter>
         </MessageDay>
       </>
     )
@@ -112,7 +110,7 @@ class Main extends Component {
 
   render() {
     const { podcasts } = this.props;
-    const { verseOfDay, messageOfDay } = this.state;
+    const { error } = this.state;
 
     return (
       <Container>
@@ -126,8 +124,7 @@ class Main extends Component {
           ListHeaderComponent={() => (
             <>
               <View>{podcasts.error && this.renderError()}</View>
-              <View>{!verseOfDay.error && this.renderVerse()}</View>
-              <View>{!messageOfDay.error && this.renderMessage()}</View>
+              <View>{!error && this.renderMessage()}</View>
               <PodcastTitle>Podcasts</PodcastTitle>
             </>
           )}

@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import LinearGradient from "react-native-linear-gradient";
 import IconLoading from "react-native-vector-icons/Fontisto";
-import IconDots from "react-native-vector-icons/FontAwesome";
+import Icons from "react-native-vector-icons/FontAwesome";
 
 export const Container = styled(LinearGradient).attrs({
   colors: ["#FFF", "#D9E5FE"]
@@ -11,14 +11,14 @@ export const Container = styled(LinearGradient).attrs({
 
 export const PodcastTitle = styled.Text`
   color: #000;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  margin: 20px 0 0 10px; 
+  margin: 25px 0 0 10px; 
 `;
 
 export const SectionTitle = styled.Text`
   color: #000;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   margin: 10px 0 0 10px; 
 `;
@@ -30,15 +30,15 @@ export const VerseDay = styled(LinearGradient).attrs({
 })`
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 25px;
-  margin: 10px 10px 0;
+  padding: 15px 25px;
+  margin: 15px 10px 0;
   background: #fff;
   border-radius: 20px;
 `;
 
 export const VerseText = styled.Text`
   color: #fff;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
 
 `;
@@ -55,18 +55,18 @@ export const MessageDay = styled(LinearGradient).attrs({
 })`
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 25px;
-  margin: 10px 10px 0;
+  padding: 15px 25px;
+  margin: 15px 10px 0;
   background: #fff;
   border-radius: 20px;
 `;
 
 export const MessageTitle = styled.Text`
   color: #fff;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
   text-transform: capitalize;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 `;
 
 export const MessageSummary = styled.Text`
@@ -87,6 +87,24 @@ export const MessageReference = styled.Text`
   font-size: 12px;
   margin: 3px 0 5px;
 `;
+
+export const MessageFooter = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+export const MessageDate = styled.Text`
+  color: #fff;
+  font-size: 14px;
+`;
+
+export const ReadIcon = styled(Icons).attrs({
+  color: "#fff",
+  size: 28
+})``;
 
 export const PodcastList = styled.FlatList.attrs({
   contentContainerStyle: {
@@ -165,7 +183,7 @@ export const Count = styled.Text`
   margin-top: 3px;
 `;
 
-export const DotsIcon = styled(IconDots).attrs({
+export const DotsIcon = styled(Icons).attrs({
   color: "#ccc",
   size: 26
 })``;
