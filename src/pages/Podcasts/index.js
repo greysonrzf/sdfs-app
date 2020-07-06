@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+
 import { View, StatusBar } from "react-native";
+
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { Share } from "react-native";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PlayerActions from "../../store/ducks/player";
+
+import Player from "../../components/Player";
 
 import {
   Container,
@@ -104,6 +108,7 @@ class Podcasts extends Component {
             </Episode>
           )}
         />
+        <Player />
       </Container>
     );
   }

@@ -11,6 +11,7 @@ import { View, ActivityIndicator } from "react-native";
 
 
 import Header from "../../components/Header";
+import Player from "../../components/Player";
 
 import {
   Container,
@@ -114,6 +115,7 @@ class Main extends Component {
             </Podcast>
           )}
         />
+        <Player />
       </Container>
     );
   }
