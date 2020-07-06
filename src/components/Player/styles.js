@@ -24,7 +24,6 @@ export const Container = styled(LinearGradient).attrs({
   justify-content: space-between;
   align-items: center;
   padding: 0 20px ${getBottomSpace()}px;
-  border-top-left-radius: 35px;
 `;
 
 export const EpisodeInfo = styled.View`
